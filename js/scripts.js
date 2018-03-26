@@ -3,30 +3,42 @@ $(function(){
     var inputString = $("#sentence-input").val();
 
     function strToArray(string){
-      return string.split(' ');
+      return string.toLowerCase().split(' ');
     }
 
-    console.log(strToArray(inputString));
+    var arrayOfWords = strToArray(inputString);
+    var sortedArrayOfWords = arrayOfWords.sort();
 
+    // wordCounter obj
     function wordCounter(array) {
-      var counter = 0;
-      var compareWord = array.shift();
-    }
-
-    function wordCounter(array) {
-      var counter = 0;
-      var compareWord = array.shift();
-      console.log(compareWord);
-      array.forEach(function(word) {
-        var words = array.filter(function(word) {
-          return word === compareWord;
-          counter = words.length;
-          console.log(counter);
-        });
+      var obj = {};
+      strToArray(inputString);
+      array.forEach(function (word) {
+        if(obj.hasOwnProperty(word)) {
+          obj[word]++;
+        } else {
+          obj[word] = 1;
+        }
       })
-      console.log(words);
+      return obj;
     }
 
+    // version with arrays
+    // var counts = [];
+    // var next;
+    // words.forEach(function(word) {
+    //   if (word !== prev) {
+    //     counts.push(1);
+    //   } else {
+    //     counts[count.length - 1]++;
+    //   }
+    //   prev = word;
+    // });
+
+    console.log(wordCounter(sortedArrayOfWords));
+
+    //
+    // wordCounter(arrayOfWords);
     event.preventDefault();
   });
 });
