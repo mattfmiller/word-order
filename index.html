@@ -9,6 +9,17 @@
     <title></title>
   </head>
   <body>
-
+    <div class="container-fluid">
+      <form id="wordForm" action="index.html" method="post">
+        <div class="form-control">
+          <label for="sentence">Write a sentence:</label>
+          <input id="sentence-input" class = 'form-control' type="text" name="sentence" value="">
+        </div>
+        <button type="submit" name="button" class="btn btn-secondary">Word Counter</button>
+      </form>
+      <div>
+        <p id="newSentence"></p>
+      </div>
+    </div>
   </body>
 </html>
